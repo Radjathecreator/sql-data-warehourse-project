@@ -16,8 +16,6 @@ sql-data-warehouse-project/
 └── tests/                  checks the quality of the silver and gold data
 ```
 
-The bronze loader, `scripts/bronze/proc_load_bronze.sql`, reads the six files from `C:\sql\dwh_project\datasets\`, the folder used in the videos. Put the folder there, or change the six paths in the script.
-
 ---
 ## 📊 Data Layers
 
