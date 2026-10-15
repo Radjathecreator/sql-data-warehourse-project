@@ -29,6 +29,30 @@ The data architecture for this project follows Medallion Architecture **Bronze**
 3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
 
 ---
+##  🔗 Data Flow
+![Data flow](docs/data_flow.png)
+The data flow illustrates how raw source files progress through the Medallion architecture into final analytical tables:   
+1. **Bronze Layer**: Raw CSV datasets from CRM and ERP source systems are ingested as-is into staging tables (crm_sales_details, crm_cust_info, crm_prd_info, erp_cust_az12, erp_loc_a101, erp_px_cat_g1v2).   
+2. **Silver Layer**: Staging data is cleaned, standardized, and stored in corresponding Silver tables.   
+3. **Gold Layer**: Cleaned Silver tables are consolidated into final star schema views, mapping sales data to fact_sales, customer profiles to dim_customer, and product catalogs to dim_products.  
+
+---
+##  🔗 Data Integration
+![Data Integration](docs/data_integration.png)
+Data integration combines information from two distinct source systems (CRM and ERP) into a unified structure. Transactional sales records (crm_sales_details) link to product information (crm_prd_info) via prd_key, which connects to ERP product categories (erp_px_cat_g1v2). Similarly, customer sales link to customer profiles (crm_cust_info) via cst_id, which enriches demographic data by connecting to ERP customer birthdates (erp_cust_az12) and customer locations (erp_loc_a101) via cid.
+
+---
+## 📐 Data Model (Sales Data Mart)
+
+The data model for the Gold Layer is designed as a Star Schema optimized for analytical queries, business reporting, and data analysis:
+![Data Model](docs/data_model.png)
+
+1. gold.facts_sales (Fact Table): Stores transactional sales metrics (sales_amount, quantity, price) along with foreign keys connecting to dimension tables. Includes core business calculations (e.g., sales = quantity * price).
+2. gold.dim_customers (Dimension Table): Contains consolidated customer attributes (demographics, contact info, and country details) linked via customer_key.
+3. gold.dim_products (Dimension Table): Holds product metadata (categories, subcategories, line, and cost specifications) linked via product_key.
+
+---
+
 ## 📖 Project Overview
 
 This project involves:
