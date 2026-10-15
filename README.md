@@ -91,11 +91,3 @@ These insights empower stakeholders with key business metrics, enabling strategi
 ## 🤝 Connect
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/radjakurniawan/)
-
-## 🛡️ License
-
-[MIT](LICENSE). Use it, change it, share it, with attribution.
-
-## 🌟 About me
-
-Hi, I'm **Radja Kurniawan**. I spent 17 years in enterprise data engineering and built one of the largest lakehouses at Mercedes-Benz. Today I teach data full-time at **Data With Baraa**: visually, step by step, from zero to hero.
